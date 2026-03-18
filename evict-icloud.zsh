@@ -1,0 +1,1 @@
+find . -type f -exec sh -c 'xattr -p "com.apple.fileprovider.pinned#PX" "$1" >/dev/null 2>&1 && (echo "Processing: $1"; xattr -d "com.apple.fileprovider.pinned#PX" "$1"; brctl evict "$1")' -- {} \;
